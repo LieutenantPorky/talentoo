@@ -1,0 +1,53 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/styles.css') }}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  $(function() {
+    $("button").click(function(){
+      $.ajax({
+        url: "{{add_url}}",
+        type: "POST",
+        data: JSON.stringify($("form.newPerson").serializeArray()),
+        contentType: 'application/json;charset=UTF-8',
+        success: function(data){
+            alert("Data submitted");
+            $("form.newPerson").trigger('reset');
+        }
+      });
+    });
+  })
+</script>
+<title> Talentoo </title>
+</head>
+
+<body>
+  <div class="topnav">
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+  <a href="#">Link</a>
+</div>
+
+
+
+  <div><h2>Add new person</h2></div>
+  <div class=form>
+    <form class=newPerson>
+      <label for="fname">First name:</label>
+      <input class="textboxes" placeholder="First Name" type="text" id="fname" name="fname"><br>
+      <label for="lname">Last name:</label>
+      <input class="textboxes" placeholder="Last Name" type="text" id="lname" name="lname">
+      <div id=contact>
+        <label for="email">E-mail:</label>
+        <input class="textboxes" type="email" id="email" name="email"><br>
+
+        <label for="phone">Phone number: </label>
+        <input type="tel" class="textboxes" id="phone" name="phone"><br>
+
+      </div>
+    </form>
+<button class="button"> Submit </button>
+  </div>
+  <a href="/">Back</a>
+</body>
+</html>

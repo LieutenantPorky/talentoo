@@ -1,0 +1,20 @@
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <title> Talentoo </title>
+</head>
+
+<body>
+  <h2>{{name}}</h2>
+  <br>
+  <h3>Contact info:</h3>
+  {%for element in contact_list%}
+    <div class="contact_item">
+      <h3>{{element.name}}: </h3> <p>{{element.content}}</p>
+    </div>
+  {%endfor%}
+
+  <br>
+  <a href="/">Back</a>
+</body>
+</html>
